@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import MovieCard from "../components/MovieCard";
 
 const Main = () => {
   const [movie, setMovie] = useState([]);
@@ -12,12 +13,20 @@ const Main = () => {
     const { data } = await axios(url);
     setMovie(data.results);
   };
-  console.log(movie);
+
   useEffect(() => {
     getMovies();
   }, []);
 
-  return <div></div>;
+  return (
+    <div className="mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8;">
+      <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 xl:gap-x-8">
+        {movie.map((item) => (
+          <MovieCard key={item.id} {...item} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Main;
