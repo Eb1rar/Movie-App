@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Switch from "./Switch";
@@ -9,6 +9,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const [isUser, setIsUser] = useState(false);
   return (
     <Disclosure as="nav" className=" bg-white dark:bg-gray-800">
       {({ open }) => (
@@ -38,7 +39,7 @@ export default function Navbar() {
                           item.current
                             ? "text-black dark:text-white font-bold text-2xl"
                             : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium"
+                          "rounded-md px-3 py-2 font-bold text-2xl"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
@@ -59,7 +60,11 @@ export default function Navbar() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src={
+                          isUser
+                            ? "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfb_mGGQfD8gPJdLwzVGdMH5B_WxftqIiisg&usqp=CAU"
+                        }
                         alt=""
                       />
                     </Menu.Button>

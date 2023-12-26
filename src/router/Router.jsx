@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/Navbar";
+import Main from "../pages/Main";
+import { Route, Routes } from "react-router-dom";
 
 const Router = () => {
   return (
-    <div>Router</div>
-  )
-}
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Main />} />
+      </Routes>
+    </>
+  );
+};
 
-export default Router
+export default Router;
