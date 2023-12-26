@@ -3,11 +3,14 @@ import React from "react";
 const MovieCard = ({ title, overview, vote_average, poster_path }) => {
   return (
     <div>
-      <a href="#" className="group relative block bg-black h-[500px]">
+      <a
+        href="#"
+        className="group relative block bg-black h-[500px] object-contain"
+      >
         <img
           alt="Developer"
           src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
-          className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+          className="absolute inset-0 h-full w-full  opacity-75 transition-opacity group-hover:opacity-50"
         />
         <div className="relative p-4 sm:p-6 lg:p-8">
           <p className="text-xl font-bold text-white sm:text-2xl">{title}</p>

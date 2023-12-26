@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
+import Search from "../components/Search";
 
 const Main = () => {
   const [movie, setMovie] = useState([]);
@@ -20,7 +21,8 @@ const Main = () => {
 
   return (
     <div className="mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8;">
-      <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 xl:gap-x-8">
+      <Search />
+      <div className="mt-6 grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-10 xl:gap-x-8">
         {movie.map((item) => (
           <MovieCard key={item.id} {...item} />
         ))}
