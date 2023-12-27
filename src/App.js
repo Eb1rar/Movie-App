@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Router from "./router/Router";
-function App() {
+import AppRouter from "./router/AppRouter";
+
+const App = () => {
   return (
     <div>
-      <Router />
+      <AppRouter />
     </div>
   );
-}
+};
 
 export default App;
